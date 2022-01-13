@@ -21,6 +21,21 @@ vis.events.subscribe(
 		vis:command('set tabwidth 4')
 		vis:command('set expandtab on')
 
+		if not win.syntax then
+			vis:command('set syntax markdown')
+		end
+
+		if win.syntax then
+			vis:info('syntax: '..win.syntax)
+		else
+			vis:info('syntax: <nil>')
+		end
+
+		if win.syntax == 'yaml' or win.syntax == 'bash' then
+			vis:command('set tabwidth 2')
+		elseif win.syntax == 'lua' or win.syntax == 'bash' or win.syntax == 'ansi_c' then
+			vis:command('set expandtab off')
+		end
 	end
 )
 
