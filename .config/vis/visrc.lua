@@ -25,10 +25,10 @@ vis.events.subscribe(
 )
 
 vis.events.subscribe(
-    vis.events.FILE_OPEN,
-    function(win)
-       if win.syntax ~= 'yaml' then
-          vis:command('set tabwidth 2')
-       end
-    end
+	vis.events.FILE_SAVE_PRE,
+	function(file, path)
+		-- TODO: remove trailing whitespace
+		-- vis:command('% | trail') -- fails with segmentation fault
+		-- vis:command('x#[	]$# d') -- corrupted linked list
+	end
 )
