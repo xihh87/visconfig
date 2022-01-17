@@ -22,7 +22,11 @@ vis.events.subscribe(
 		vis:command('set expandtab on')
 
 		if not win.syntax then
-			vis:command('set syntax markdown')
+			if win.file.name == '.git/COMMIT_EDITMSG' then
+				vis:command('set syntax text')
+			else
+				vis:command('set syntax markdown')
+			end
 		end
 
 		if win.syntax then
