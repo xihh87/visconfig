@@ -40,6 +40,10 @@ vis.events.subscribe(
 		elseif win.syntax == 'lua' or win.syntax == 'bash' or win.syntax == 'ansi_c' then
 			vis:command('set expandtab off')
 		end
+
+		if string.match(win.file.name, '.tsv$') then
+				vis:command('set expandtab off')
+		end
 	end
 )
 
