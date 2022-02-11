@@ -41,6 +41,10 @@ vis.events.subscribe(
 			vis:command('set expandtab off')
 		end
 
+		if string.match(win.file.name, 'mkfile$') then
+				vis:command('set expandtab off')
+		end
+
 		if string.match(win.file.name, '.tsv$') then
 				vis:command('set expandtab off')
 		end
