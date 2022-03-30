@@ -50,6 +50,9 @@ vis.events.subscribe(
 			if string.match(win.file.name, 'mkfile$') then
 				vis:command('set expandtab off')
 			end
+			if string.match(win.file.name, '.hcl$') then
+				vis:command('set tabwidth 2')
+			end
 			if string.match(win.file.name, '.tsv$') then
 				vis:command('set expandtab off')
 			end
